@@ -1,0 +1,18 @@
+{
+  "require": {
+    "ionerednew/analog-finder": "1.1.7"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/ionerednew/analog-finder.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/ionerednew/ajax.git"
+    }
+  ],
+  "extra":{
+    "magento-root-dir": "."
+  }
+}

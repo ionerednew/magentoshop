@@ -9,6 +9,13 @@
 /media/*
 !/media/.htaccess
 
+/app/Mage.php
+.idea/
+*Ionerednew*
+*ionerednew*
+/vendor
+shell/setAnalogsDataByFile.php
+
 !/media/customer
 /media/customer/*
 !/media/customer/.htaccess
