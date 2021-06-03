@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d016772bfc6e076679020943cf614592",
+    "content-hash": "32e362d2a85a020d98c4e2728a7d3e89",
     "packages": [
         {
             "name": "eloquent/composer-config-reader",
@@ -147,11 +147,11 @@
         },
         {
             "name": "ionerednew/analog-finder",
-            "version": "1.1.8",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ionerednew/analog-finder.git",
-                "reference": "227487d9aa7dff24dee75bb673765a88740fb5a8"
+                "reference": "53b031a91a2b27eee6aba85050fb6cf3d4b44fd8"
             },
             "require": {
                 "ionerednew/ajax": "1.0.0",
@@ -197,7 +197,7 @@
                 }
             ],
             "description": "Analog finder module for Magento",
-            "time": "2021-05-30T13:59:31+00:00"
+            "time": "2021-06-03T00:42:07+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -401,16 +401,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.4.24",
+            "version": "v4.4.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "1b15ca1b1bedda86f98064da9ff5d800560d4c6d"
+                "reference": "a62acecdf5b50e314a4f305cd01b5282126f3095"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/1b15ca1b1bedda86f98064da9ff5d800560d4c6d",
-                "reference": "1b15ca1b1bedda86f98064da9ff5d800560d4c6d",
+                "url": "https://api.github.com/repos/symfony/console/zipball/a62acecdf5b50e314a4f305cd01b5282126f3095",
+                "reference": "a62acecdf5b50e314a4f305cd01b5282126f3095",
                 "shasum": ""
             },
             "require": {
@@ -469,7 +469,7 @@
             ],
             "description": "Eases the creation of beautiful and testable command line interfaces",
             "homepage": "https://symfony.com",
-            "time": "2021-05-13T06:28:07+00:00"
+            "time": "2021-05-26T11:20:16+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
