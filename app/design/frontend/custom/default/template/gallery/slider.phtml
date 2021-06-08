@@ -1,0 +1,25 @@
+<?php /**  @var $this Krasnov_Gallery_Block_Slider */ ?>
+<div class="slider__gallery">
+    <p class="caption">Наши работы</p>
+    <div class="gallery__slider" data-slick='{"slidesToShow": 4, "slidesToScroll": 4, "infinite": true, "centerMode": true, "variableWidth" : true}'>
+        <?php /** @var $view Krasnov_Gallery_Model_View */
+        foreach ($this->getSliderGallery() as $view) : ?>
+            <div class="gallery__slider-slide">
+                <?php if (!$view->isVideo()) : ?>
+                    <img src="<?=$view->getFileUrl(); ?>">
+                <?php else : ?>
+                    <video controls="controls" data-played="no" muted poster="">
+                        <source src="<?=$view->getFileUrl(); ?>" type="video/mp4">
+                    </video>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <div class="go__to-gallery-block">
+        <a class="go__to-gallery" href="<?=$this->getUrl('gallery'); ?>"><?=$this->__('Go to gallery'); ?></a>
+    </div>
+</div>
+<script type="text/javascript">jQuery('.gallery__slider').slick({
+        prevArrow:"",
+        nextArrow:"",
+    });</script>

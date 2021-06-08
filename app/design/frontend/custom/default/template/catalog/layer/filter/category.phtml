@@ -1,0 +1,62 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design
+ * @package    kerastase_default
+ * @copyright  Copyright (C) 2014 Krasnov
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for filter category block
+ *
+ * @var $this Krasnov_Catalog_Block_Layer_Filter_Category
+ */
+?>
+<?php
+$isCurrentCategoryCatalog = $this->isCurrentCategoryCatalog();
+?>
+<div class="nav-category">
+    <div class="container nav-category__i">
+        <div class="category-container__content"">
+            <h1 class="nav-category__title js-nav-category" itemprop="Name"><?php echo $this->getH1() ?></h1>
+            <ul class="nav-category__list">
+                <?php foreach ($this->getItems() as $_item): ?>
+                    <li class="nav-category__item col-md-4 col-sm-4 col-xs-6 <?php if ($this->isChosen($_item)): ?>active<?php endif ?>">
+                        <?php if ($this->isChosen($_item)): ?>
+                        <a <?php if (!$isCurrentCategoryCatalog) echo 'href="' . $_item->getUrl() .'"'; ?> class="pen__link <?php if ($isCurrentCategoryCatalog) echo 'pen__link-active' ?>"><?php echo $_item->getLabel() ?>
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 152.9 43.4" style="enable-background:new 0 0 152.9 43.4;" xml:space="preserve">
+                                    <path d="M151.9,13.6c0,0,3.3-9.5-85-8.3c-97,1.3-58.3,29-58.3,29s9.7,8.1,69.7,8.1c68.3,0,69.3-23.1,69.3-23.1 s1.7-10.5-14.7-18.4"/>
+                            </svg>
+                        </a>
+                        <?php else: ?>
+                            <a class="pen__link" href="<?php echo $this->urlEscape($_item->getUrl()) ?>"><?php echo $_item->getLabel() ?>
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 152.9 43.4" style="enable-background:new 0 0 152.9 43.4;" xml:space="preserve">
+                                    <path d="M151.9,13.6c0,0,3.3-9.5-85-8.3c-97,1.3-58.3,29-58.3,29s9.7,8.1,69.7,8.1c68.3,0,69.3-23.1,69.3-23.1 s1.7-10.5-14.7-18.4"/>
+                                </svg>
+                            </a>
+                        <?php endif; ?>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="topMenu">
+    <div class="burgerMenu">
+					<span class = "burger" data-active = "0">
+						<span class= "burgerSingle"></span>
+						<span class= "burgerSingle"></span>
+						<span class= "burgerSingle"></span>
+					</span>
+    </div>
+    <a class="header__logo" href="/">
+        <img src="/media/logoNew.png">
+    </a>
+    <div class="communicationPhone">
+        <div>
+            <p>Телефон для связи</p>
+            <p>+7 (988) 551-55-11</p>
+        </div>
+    </div>
+</div>
+
+<div class="navMenu">
+    <p class="close"><span>Закрыть меню</span></p>
+    <a class="home" href="/">Главная</a>
+    <a href="/gallery">Галерея</a>
+    <a href="<?=$this->helper('krasnov_catalog')->getCatalogUrl()?>">Каталог</a>
+    <a href="/shares">Акции</a>
+    <a href="#footer-contacts" class="linkToId">Контакты</a>
+    <div class="search"><?php echo $this->getChildHtml('topSearch') ?></div>
+</div>

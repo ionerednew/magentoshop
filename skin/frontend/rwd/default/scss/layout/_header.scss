@@ -197,6 +197,7 @@
 }
 
 a.skip-link {
+    color:red;
     text-decoration: none;
 }
 
@@ -336,6 +337,4 @@ a.skip-link {
     right:0px;
 
     @include bp(max-width, $bp-medium) {
-        position: static;
-    }
-}
+        position: s

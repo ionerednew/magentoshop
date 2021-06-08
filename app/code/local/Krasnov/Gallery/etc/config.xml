@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Krasnov Web extension for Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade
+ * the Krasnov Gallery module to newer versions in the future.
+ * If you wish to customize the Krasnov Gallery module for your needs
+ * please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   Krasnov
+ * @package    Krasnov_Gallery
+ * @copyright  Copyright (C) 2020 Krasnov
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+
+<config>
+    <modules>
+        <Krasnov_Gallery>
+            <version>1.0.0</version>
+        </Krasnov_Gallery>
+    </modules>
+    <global>
+        <helpers>
+            <gallery>
+                <class>Krasnov_Gallery_Helper</class>
+            </gallery>
+        </helpers>
+        <models>
+            <gallery>
+                <class>Krasnov_Gallery_Model</class>
+                <resourceModel>gallery_resource</resourceModel>
+            </gallery>
+            <gallery_resource>
+                <class>Krasnov_Gallery_Model_Resource</class>
+                <entities>
+                    <view>
+                        <table>gallery_view</table>
+                    </view>
+                </entities>
+            </gallery_resource>
+        </models>
+        <resources>
+            <gallery_setup>
+                <setup>
+                    <module>Krasnov_Gallery</module>
+                </setup>
+            </gallery_setup>
+        </resources>
+        <blocks>
+            <gallery>
+                <class>Krasnov_Gallery_Block</class>
+            </gallery>
+        </blocks>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <gallery before="Mage_Adminhtml">Krasnov_Gallery_Adminhtml</gallery>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <gallery>
+                    <file>krasnov/gallery.xml</file>
+                </gallery>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <gallery>
+                    <files>
+                        <default>Krasnov_Gallery.csv</default>
+                    </files>
+                </gallery>
+            </modules>
+        </translate>
+    </adminhtml>
+    <frontend>
+        <translate>
+            <modules>
+                <gallery>
+                    <files>
+                        <default>Krasnov_Gallery.csv</default>
+                    </files>
+                </gallery>
+            </modules>
+        </translate>
+        <routers>
+            <gallery>
+                <use>standard</use>
+                <args>
+                    <module>Krasnov_Gallery</module>
+                    <frontName>gallery</frontName>
+                </args>
+            </gallery>
+        </routers>
+        <layout>
+            <updates>
+                <gallery>
+                    <file>krasnov/gallery.xml</file>
+                </gallery>
+            </updates>
+        </layout>
+    </frontend>
+</config>

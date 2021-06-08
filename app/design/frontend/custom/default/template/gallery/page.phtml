@@ -1,0 +1,18 @@
+<?php /** @var Krasnov_Gallery_Block_Page $this  */?>
+<?php echo $this->getChildHtml('breadcrumbs') ?>
+
+<h2 class="caption"><?=$this->__('Gallery')?></h2>
+<div class="container gallery__container">
+    <?php /** @var $view Krasnov_Gallery_Model_View */ ?>
+    <?php foreach ($this->getGalleryCollection() as $view) : ?>
+        <div class="gallery__view" class="col-md-3 col-sm-4 col-xs-4">
+            <?php if (!$view->isVideo()) : ?>
+                <img src="<?=$view->getFileUrl(); ?>" data-action="zoom">
+            <?php else : ?>
+                <video controls="controls" data-played="no" muted poster="">
+                    <source src="<?=$view->getFileUrl(); ?>" type="video/mp4">
+                </video>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+</div>

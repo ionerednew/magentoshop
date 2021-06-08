@@ -1,0 +1,71 @@
+<footer>
+    <div class="footer_content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 сol-sm-12">
+                    <div class="feedback" data-feedback-save-url="<?= $this->getUrl('feedback/question/save'); ?>">
+                        <h2 class="white">Обратная связь:</h2>
+                        <div class="row">
+                            <div class="col-md-4"><input type="text" placeholder="Имя..." class="feedback__name"></div>
+                            <div class="col-md-4"><input type="text" placeholder="Телефон..." class="feedback__phone"></div>
+                            <div class="col-md-4"><input type="text" placeholder="Email..." class="feedback__email"></div>
+                            <div class="col-md-12"><textarea class="feedback__question" placeholder="Заказ..."></textarea><br><button class="send feedback__btn">Отправить</button></div>
+                            <div class="col-md-12 feedback__status"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12" id="footer-contacts">
+                    <h2 class="white">Контакты:</h2>
+                    <ul class="lists">
+                        <li class="arrow_red"><a href="/">Телефон: 8-988-551-55-11 </a></li>
+                        <li class="arrow_red"><a href="/">Офис: район, с.В-Вознесенка, ул. Советская, д.39. </a></li>
+                        <li class="arrow_red"><a href="/">platov-mebel@mail.ru</a></li>
+                    </ul>
+                    <h2 class="white">Наши реквизиты:</h2>
+                    <div>
+                        <p class="nameBill">ИНН 612308227280</p>
+                        <p class="nameBill">ОГРНИП 318619600095260</p>
+                        <p class="nameBill">БИК 046015602</p>
+                        <p class="nameBill">ОКПО 97788686</p>
+                        <p class="nameBill">Корр. счет 30101810600000000602</p>
+                        <p class="nameBill">Расч. счет 40802810552090034418</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom_line">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 hidden-sm">
+                    © 2020 created by <a href="http://ionerednew.ru/">ionerednew</a>
+                </div>
+                <div class="col-md-6">
+                    <div class="footer_menu"><a href="/">Главная</a> <a href="<?=$this->helper('krasnov_catalog')->getCatalogUrl() ?>">Каталог</a> <a href="<?=$this->getUrl('shares')?>">Акции</a> <a href="<?=$this->getUrl();?>#about-us-main" class="linkToId"">О нас</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    jQuery('.feedback__btn').click(function () {
+        jQuery.ajax({
+            type: 'POST',
+            url: jQuery('.feedback').data('feedbackSaveUrl'),
+            data: {
+                "feedback[name]": jQuery('.feedback__name').val(),
+                "feedback[email]": jQuery('.feedback__email').val(),
+                "feedback[phone]": jQuery('.feedback__phone').val(),
+                "feedback[question]": jQuery('.feedback__question').val()
+            },
+        }).done(function(response) {
+            if (response.status == "success") {
+                jQuery('.feedback__status').removeClass('error').addClass('success').text(response.message);
+                jQuery('.feedback__btn').prop('disabled', true);
+                fbq('track', 'Lead');
+            } else {
+                jQuery('.feedback__status').removeClass('success').addClass('error').text(response.message);
+            }
+        });
+    });
+</script>

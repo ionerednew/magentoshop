@@ -1,0 +1,44 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php if($this->getResultCount()): ?>
+    <h2 class="caption"><?php echo ($this->getHeaderText() || $this->getHeaderText() === false) ? $this->getHeaderText() : $this->__("Search results for '%s'", $this->helper('catalogsearch')->getEscapedQueryText()) ?></h2>
+    <?php echo $this->getProductListHtml() ?>
+<?php else: ?>
+    <div class="container_noresults__content">
+        <div class="container search-container">
+            <h2 class="search-title"><?=$this->__('Search results'); ?></h2>
+            <p class="note-msg"><?=$this->__('Unfortunately for the query «%s» nothing was found.', $this->helper('catalogsearch')->getEscapedQueryText()); ?></p>
+            <form id="searchStandartForm" class="form standart-search-form form_validation-process" action="<?=$this->getUrl('catalogsearch/result/index'); ?>" method="get" novalidate="novalidate">
+                <input id="search" class="form__input" required="" type="text" name="q" value="<?= $this->helper('catalogsearch')->getEscapedQueryText() ?>" placeholder="Ключевое слово или артикул" maxlength="128">
+                <button type="submit" class="btn-invert btn-invert_big catalog__search-page-btn" title="Поиск"><?=$this->__('Search'); ?></button>
+            </form>
+            <p class="note-msg note-msg-small"><?=$this->__('Cant find something?'); ?> <a href="#footer-contacts"><?=$this->__('Write to us.'); ?></a>.</p>
+        </div>
+    </div>
+    <?= $this->getChildHtml('products.bestseller')  ?>
+    <?= $this->getChildHtml('products.viewed')  ?>
+<?php endif; ?>

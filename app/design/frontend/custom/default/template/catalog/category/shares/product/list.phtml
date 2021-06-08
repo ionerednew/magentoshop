@@ -1,0 +1,114 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @var $this Krasnov_Catalog_Block_Category_Shares
+ */
+?>
+<?php
+$_productCollection=$this->getLoadedProductCollection();
+$_helper = $this->helper('catalog/output');
+$_catalogUrl = $this->helper('krasnov_catalog')->getCatalogUrl();
+?>
+
+<?php if(!$_productCollection->count()): ?>
+    <div class="container_noresults__content">
+        <div class="container search-container">
+            <p class="note-msg"><?=$this->__("Unfortunately, now there are no shares.<br> You can use the search to find the products you need or go to the <a href='%s'>catalog</a>.", $_catalogUrl); ?></p>
+            <form id="searchStandartForm" class="form standart-search-form form_validation-process" action="<?=$this->getUrl('catalogsearch/result/index'); ?>" method="get" novalidate="novalidate">
+                <input id="search" class="form__input" required="" type="text" name="q" value="<?= $this->helper('catalogsearch')->getEscapedQueryText() ?>" placeholder="Ключевое слово или артикул" maxlength="128">
+                <button type="submit" class="btn-invert btn-invert_big catalog__search-page-btn" title="Поиск"><?=$this->__('Search'); ?></button>
+            </form>
+            <p class="note-msg note-msg-small"><?=$this->__('Cant find something?'); ?> <a href="#footer-contacts"><?=$this->__('Write to us.'); ?></a>.</p>
+        </div>
+    </div>
+    <?php echo $this->getChildHtml('products.bestseller'); ?>
+    <?php echo $this->getChildHtml('products.viewed'); ?>
+<?php else: ?>
+    <div class="category-products container">
+        <?php echo $this->getToolbarHtml() ?>
+        <?php // List mode ?>
+
+
+        <?php // Grid Mode ?>
+
+        <?php $_collectionSize = $_productCollection->count() ?>
+        <?php $_columnCount = $this->getColumnCount(); ?>
+        <ul class="products-grid grid-clol-6">
+            <?php $i=0; foreach ($_productCollection as $_product): ?>
+
+                <div class="product__tile col-md-3 col-xs-12 col-sm-6">
+                    <li class="product__item item" itemscope itemtype="http://schema.org/product">
+                        <div class="wrapper-hover">
+                            <a  href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image" itemprop="url">
+                                <img  src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(270, 270); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" itemprop="image"/>
+                                <?php if ($label = $_product->getAttributeText('label')) : ?>
+                                    <div class="product__item-label">
+                                        <span><?= $label ?></span>
+                                    </div>
+                                <?php endif; ?>
+                            </a>
+                            <div class="product-shop product__shop-list">
+                                <h3 class="product-name">
+                                    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" itemprop="name">
+                                        <?php $small_getName = strip_tags($this->htmlEscape($_product->getName()));
+                                        if (strlen($small_getName) < 50) echo($small_getName);
+                                        else { echo mb_substr($small_getName, 0, 40,'UTF-8').'...';} ?>
+                                    </a>
+                                </h3>
+                                <div class="desc_grid" itemprop="description"><?php $small_getDescription = strip_tags($_product->getShortDescription());
+                                    if (strlen($small_getDescription) < 60) echo($small_getDescription);
+                                    else { echo mb_substr($small_getDescription, 0, 60,'UTF-8').'...';} ?></div>
+
+                                <div class="product__item-footer">
+                                    <?php echo $this->getPriceHtml($_product, true) ?>
+                                    <a href="<?php echo $_product->getProductUrl(); ?>">
+                                        <button class="learn-more">
+                                        <span class="circle" aria-hidden="true">
+                                          <span class="icon arrow"></span>
+                                        </span>
+                                            <span class="button-text">Подробнее</span>
+                                        </button>
+                                    </a>
+
+                                </div>
+                            </div>
+                            <?php $_product = Mage::getModel('catalog/product')->load($_product->getId()); ?>
+                            <div class="clear"></div>
+                        </div>
+                    </li>
+                </div>
+            <?php endforeach ?>
+        </ul>
+        <?php echo $this->getChild('product_list_toolbar')->getPagerHtml() ?>
+        <?php echo $this->getChildHtml('products.bestseller'); ?>
+        <?php echo $this->getChildHtml('products.viewed'); ?>
+    </div>
+<?php endif; ?>
+

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Krasnov Web extension for Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade
+ * the Krasnov Feedback module to newer versions in the future.
+ * If you wish to customize the Krasnov Feedback module for your needs
+ * please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   Krasnov
+ * @package    Krasnov_Feedback
+ * @copyright  Copyright (C) 2020 Krasnov
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+
+<config>
+    <modules>
+        <Krasnov_Feedback>
+            <version>1.0.0</version>
+        </Krasnov_Feedback>
+    </modules>
+    <global>
+        <helpers>
+            <feedback>
+                <class>Krasnov_Feedback_Helper</class>
+            </feedback>
+        </helpers>
+        <models>
+            <feedback>
+                <class>Krasnov_Feedback_Model</class>
+                <resourceModel>feedback_resource</resourceModel>
+            </feedback>
+            <feedback_resource>
+                <class>Krasnov_Feedback_Model_Resource</class>
+                <entities>
+                    <feedback>
+                        <table>feedback</table>
+                    </feedback>
+                </entities>
+            </feedback_resource>
+        </models>
+        <resources>
+            <feedback_setup>
+                <setup>
+                    <module>Krasnov_Feedback</module>
+                </setup>
+            </feedback_setup>
+        </resources>
+        <blocks>
+            <feedback>
+                <class>Krasnov_Feedback_Block</class>
+            </feedback>
+        </blocks>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <feedback before="Mage_Adminhtml">Krasnov_Feedback_Adminhtml</feedback>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <feedback>
+                    <file>krasnov/feedback.xml</file>
+                </feedback>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <feedback>
+                    <files>
+                        <default>Krasnov_Feedback.csv</default>
+                    </files>
+                </feedback>
+            </modules>
+        </translate>
+    </adminhtml>
+    <frontend>
+        <translate>
+            <modules>
+                <feedback>
+                    <files>
+                        <default>Krasnov_Feedback.csv</default>
+                    </files>
+                </feedback>
+            </modules>
+        </translate>
+        <routers>
+            <feedback>
+                <use>standard</use>
+                <args>
+                    <module>Krasnov_Feedback</module>
+                    <frontName>feedback</frontName>
+                </args>
+            </feedback>
+        </routers>
+        <layout>
+            <updates>
+                <feedback>
+                    <file>krasnov/feedback.xml</file>
+                </feedback>
+            </updates>
+        </layout>
+    </frontend>
+</config>

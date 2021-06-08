@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Krasnov Web extension for Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade
+ * the Krasnov Catalog module to newer versions in the future.
+ * If you wish to customize the Krasnov Catalog module for your needs
+ * please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   Krasnov
+ * @package    Krasnov_Catalog
+ * @copyright  Copyright (C) 2020 Krasnov
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Krasnov_Catalog>
+            <version>1.0.1</version>
+        </Krasnov_Catalog>
+    </modules>
+    <global>
+        <resources>
+            <krasnov_catalog_setup>
+                <setup>
+                    <module>Krasnov_Catalog</module>
+                    <class>Mage_Catalog_Model_Resource_Setup</class>
+                    <connection>core_setup</connection>
+                </setup>
+            </krasnov_catalog_setup>
+        </resources>
+        <blocks>
+            <krasnov_catalog>
+                <class>Krasnov_Catalog_Block</class>
+            </krasnov_catalog>
+            <catalog>
+                <rewrite>
+                    <layer_filter_category>Krasnov_Catalog_Block_Layer_Filter_Category</layer_filter_category>
+                    <product_list_toolbar>Krasnov_Catalog_Block_Product_List_Toolbar</product_list_toolbar>
+                    <product_view_attributes>Krasnov_Catalog_Block_Product_View_Attributes</product_view_attributes>
+                </rewrite>
+            </catalog>
+        </blocks>
+        <models>
+            <krasnov_catalog>
+                <class>Krasnov_Catalog_Model</class>
+                <resourceModel>krasnov_catalog_resource</resourceModel>
+            </krasnov_catalog>
+            <krasnov_catalog_resource>
+                <class>Krasnov_Catalog_Model_Resource</class>
+            </krasnov_catalog_resource>
+            <catalog>
+                <rewrite>
+                    <layer_filter_category>Krasnov_Catalog_Model_Layer_Filter_Category</layer_filter_category>
+                    <layer_filter_item>Krasnov_Catalog_Model_Layer_Filter_Item</layer_filter_item>
+                    <layer_filter_attribute>Krasnov_Catalog_Model_Layer_Filter_Attribute</layer_filter_attribute>
+                </rewrite>
+            </catalog>
+        </models>
+        <helpers>
+            <krasnov_catalog>
+                <class>Krasnov_Catalog_Helper</class>
+            </krasnov_catalog>
+        </helpers>
+    </global>
+    <frontend>
+        <translate>
+            <modules>
+                <Krasnov_Catalog>
+                    <files>
+                        <default>Mage_Catalog.csv</default>
+                        <krasnov_catalog>Krasnov_Catalog.csv</krasnov_catalog>
+                    </files>
+                </Krasnov_Catalog>
+            </modules>
+        </translate>
+        <routers>
+            <shares>
+                <use>standard</use>
+                <args>
+                    <module>Krasnov_Catalog_Category_Shares</module>
+                    <frontName>shares</frontName>
+                </args>
+            </shares>
+        </routers>
+    </frontend>
+    <default>
+        <catalog>
+            <navigation>
+                <catalog_category>5</catalog_category>
+            </navigation>
+        </catalog>
+    </default>
+</config>
+
