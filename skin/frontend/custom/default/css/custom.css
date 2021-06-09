@@ -2264,3 +2264,19 @@ body {
     text-align: left;
     font-size: 18pt;
 }
+
+.success-msg ul li span {
+    padding-left: 20px;
+}
+
+.error-msg ul li span {
+    padding-left: 20px;
+}
+
+.cart-price span.price {
+    color: #303c4b;
+}
+
+.container .cart {
+    margin-bottom: 30px;
+}

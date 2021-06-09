@@ -516,8 +516,8 @@ div.alert {position:fixed;background:#353535; top:0; left:50%; width:333px; marg
 div.alert button{background:url(../images/remove-popup.png) 0 0 no-repeat; width:9px; height:9px; position:absolute; right:20px; top:45%; border:none; z-index:9999;}
 div.alert button:hover{ cursor:pointer; background-position:0 -9px;}
 
-.error-msg {  background:url(../images/i_msg-note.png) left -3px no-repeat #fde4e1; color:#df0505; font-weight:bold;  }
-.success-msg { background-color:#f7fde1; background-image:url(../images/i_msg-success.gif); color:#95bc01; font-weight:bold; }
+.error-msg {  background-color: #fde4e1; background-image:url(../images/i_msg-error.gif); color:#df0505; font-weight:bold; background-repeat: no-repeat;  }
+.success-msg { background-color:#f7fde1; background-image:url(../images/i_msg-success.gif); color:#95bc01; font-weight:bold; background-repeat: no-repeat; }
 .note-msg-empty-catalog {background: url(../images/empty-catalog.png) no-repeat left top;padding: 33px 30px 35px 150px;}
 .availability-only {overflow: hidden; border-top: 1px solid #e5e5e5; padding-top: 5px; margin-bottom: 15px;}
 
@@ -2517,7 +2517,7 @@ img.lazy{
 #checkout-review-table tr{ background:none;}
 #checkout-review-table thead{ background:none;}
 #checkout-review-table th{ padding:12px 20px 12px 20px; font-size:12px; font-weight:bold; color:#000000;}
-#checkout-review-table td{ border:1px solid #e5e5e5; background:#none; padding:15px 20px;}
+#checkout-review-table td{ border:1px solid #e5e5e5; padding:15px 20px; color:#303c4b;}
 #checkout-review-table td h3{ margin-bottom:0; font-size:12px; color:#2f2f2f; text-transform:uppercase;}
 #checkout-review-table .price{ font-weight:bold;}
 #checkout-review-table th{ border:1px solid #e5e5e5;}
