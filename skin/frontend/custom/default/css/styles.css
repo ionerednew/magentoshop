@@ -473,7 +473,7 @@ p.control input.radio { margin-right:6px; }
 .form-list .customer-dob .dob-year { width:140px; }
 .form-list .customer-dob .dob-year input.input-text { width:213px; }
 
-.buttons-set { clear:both; margin:5px 0 0; padding:5px 0 5px 0;}
+.buttons-set { clear:both; margin:15px; padding:5px 0 5px 0;}
 
 .buttons-set .back-link { float:left; margin-top:5px; }
 .buttons-set .back-link a{ }

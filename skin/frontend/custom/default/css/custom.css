@@ -2254,3 +2254,13 @@ body {
 #checkoutSteps {
     margin-bottom:40px;
 }
+
+.successParagraph {
+    font-size: 16pt;
+    margin-top: 15px;
+}
+
+.successThankCaption {
+    text-align: left;
+    font-size: 18pt;
+}
