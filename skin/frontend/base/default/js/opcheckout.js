@@ -153,6 +153,20 @@ Checkout.prototype = {
         }
     },
 
+    setMethodGuest: function(){
+
+        this.method = 'guest';
+        new Ajax.Request(
+            this.saveMethodUrl,
+            {method: 'post', onFailure: this.ajaxFailure.bind(this), parameters: {method:'guest'}}
+        );
+        Element.hide('register-customer-password');
+        this.gotoSection('billing', true);
+
+        document.body.fire('login:setMethod', {method : this.method});
+    },
+
+
     changeSection: function (section) {
         var changeStep = section.replace('opc-', '');
         this.gotoSection(changeStep, false);

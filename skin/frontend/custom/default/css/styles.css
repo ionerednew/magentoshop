@@ -278,8 +278,9 @@ button.button > span {
 	text-align:center;
 	white-space:normal; 
 	padding:0;
+	border-radius:5px;
 }
-button.button span span {padding:16px 24px; display:block; float:left;}
+button.button span span {padding:16px 24px; display:block; float:left; }
 
 button.button > span,
 .page-sitemap .links a,
@@ -302,7 +303,7 @@ button.button-bg-2 > span {
 }
 button.button > span:after,
 .but-link:after {
-	background: none repeat scroll 0 0 #73d5c9;
+	background: none repeat scroll 0 0 #00AFB0;
     bottom: 50%;
     content: "";
     height: 0;
@@ -311,6 +312,7 @@ button.button > span:after,
     transition: all 0.4s ease 0s;
     width: 0%;
     z-index: -1;
+	border-radius:5px;
 }
 
 body.ps-static button.button:hover > span:after,
@@ -1034,8 +1036,9 @@ img.lazy{
 	margin-bottom:28px;
 	position:relative;
 	text-transform: capitalize;
-	border-bottom: 5px solid #54525e;
+	border-bottom: 5px solid #00AFB0;
 	padding-bottom: 10px;
+	margin-top: 34px;
 }
 
 .block .block-title strong {
@@ -2479,10 +2482,10 @@ img.lazy{
 .opc p {margin-bottom:5px;}
 .opc .buttons-set.disabled button.button { display:none; }
 .opc .buttons-set .please-wait { height:21px; line-height:21px; font-size:12px; color:#000; }
-.opc .step-title { padding:4px 5px 6px; text-align:right;background:#3a3a3a; }
+.opc .step-title { padding:4px 5px 6px; text-align:right;background:#2a2a2a; border-radius: 5px 5px 0 0; }
 .opc .step-title .number {
 	float:left;
-	background:#73d5c9;
+	background:#00AFB0;
 	font-size:17px;
 	line-height:21px;
 	color:#fff;
@@ -2529,7 +2532,7 @@ img.lazy{
 #co-shipping-form{ border:1px solid #e5e5e5; padding:10px; display:block;}
 
 .opc .active { }
-.opc .active .step-title { cursor:default; background:#73d5c9; }
+.opc .active .step-title { cursor:default; background:#00AFB0; }
 .opc .active .step-title .number { background:#fff; color:#3a3a3a; }
 .opc .active .step-title h2 { font-size:12px; line-height:15px; padding-top:7px; }
 

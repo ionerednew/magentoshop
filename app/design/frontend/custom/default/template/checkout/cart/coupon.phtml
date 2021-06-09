@@ -34,9 +34,9 @@
                 <input class="input-text" id="coupon_code" name="coupon_code" value="<?php echo $this->escapeHtml($this->getCouponCode()) ?>" />
             </div>
             <div class="buttons-set">
-                <button type="submit" class="btn-invert btn-invert_big" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Apply Coupon')) ?>" class="button" onclick="discountForm.submit(false)" value="<?php echo Mage::helper('core')->quoteEscape($this->__('Apply Coupon')) ?>"><span><span><?php echo $this->__('Apply Coupon') ?></span></span></button>
+                <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Apply Coupon')) ?>" class="button" onclick="discountForm.submit(false)" value="<?php echo Mage::helper('core')->quoteEscape($this->__('Apply Coupon')) ?>"><span><span><?php echo $this->__('Apply Coupon') ?></span></span></button>
                 <?php if(strlen($this->getCouponCode())): ?>
-                    &nbsp; <button type="submit" class="btn-invert btn-invert_big" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Cancel Coupon')) ?>" class="button" onclick="discountForm.submit(true)" value="<?php echo Mage::helper('core')->quoteEscape($this->__('Cancel Coupon')) ?>"><span><span><?php echo $this->__('Cancel Coupon') ?></span></span></button>
+                    &nbsp; <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Cancel Coupon')) ?>" class="button" onclick="discountForm.submit(true)" value="<?php echo Mage::helper('core')->quoteEscape($this->__('Cancel Coupon')) ?>"><span><span><?php echo $this->__('Cancel Coupon') ?></span></span></button>
                 <?php endif;?>
             </div>
         </div>

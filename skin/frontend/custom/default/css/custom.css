@@ -2250,3 +2250,7 @@ body {
         background-position: 0% 50%;
     }
 }
+
+#checkoutSteps {
+    margin-bottom:40px;
+}
