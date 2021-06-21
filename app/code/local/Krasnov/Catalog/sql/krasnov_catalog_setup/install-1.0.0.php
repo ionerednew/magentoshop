@@ -19,7 +19,7 @@
  *
  * @category   Krasnov
  * @package    Krasnov_Catalog
- * @copyright  Copyright (C) 2020
+ * @copyright  Copyright (C) 2021
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
